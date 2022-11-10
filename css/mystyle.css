@@ -1,6 +1,6 @@
 :root {
-    --primary: #B8E6EC;
-    --secondary: #004466;
+    --primary: #ce9ff2;
+    --secondary: #ffffff;
 }
 
 .h-10 {
@@ -149,4 +149,13 @@ a[aria-expanded="true"].btn-toggle::before {
     position: -o-sticky;
     position: -ms-sticky;
     position: sticky;
+}
+
+h1 {
+    font-family:courier;
+    font-size: 70px !important;
+}
+button {
+    background-color: #ce9ff2 !important;
+    font-size: 27.5px !important;
 }
