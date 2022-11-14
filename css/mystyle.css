@@ -102,32 +102,6 @@ body {
     border: none;
 }
 
-input[type=submit] {
-    color: black;
-    background: #f8f9fa;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    border: none;
-}
-
-input[type=reset] {
-    color: black;
-    background: #f8f9fa;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    border: none;
-}
-
-.btn-gray {
-    background-color: var(--bs-gray-500);
-}
-
 .btn-toggle::before {
     display: inline-block !important;
     content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
@@ -155,7 +129,12 @@ h1 {
     font-family:courier;
     font-size: 70px !important;
 }
+
 button {
     background-color: #ce9ff2 !important;
     font-size: 27.5px !important;
+}
+
+h4 {
+    color: black !important;
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.bundle.js"></script>
+
+
+    <title>Crittografia</title>
+</head>
+
+<body>
+    <div class="container-fluid vh-100">
+        <div class="row h-20 align-items-center primary-custom">
+            <!--Header della pagina-->
+            <div class="col-md-12 text-center">
+                <h1>Crittografia</h1>
+            </div>
+        </div>
+        <div class="row overflow-auto pt-1 pb-1 h-70">
+            <div class="col-md-8 border-end">
+                <!--Dropdown scelta (non funziona, anche con un copia incolla dal sito bootstrap) -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Scegli il metodo
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">1</a></li>
+                        <li><a class="dropdown-item" href="#">2</a></li>
+                        <li><a class="dropdown-item" href="#">3</a></li>
+                    </ul>
+                </div>
+                <br>
+                <!--textarea testo in chiaro-->
+                <h4>Testo input</h4>
+                <textarea class="form-control" placeholder="Inserisci il testo in chiaro" id="TextAreaDecrypted" rows="10"></textarea>
+                <br>
+                <!--non aggiorna i colori, probabile contrasto con il file .css, anche se ho eliminato già quello che riguardava i button submit e reset-->
+                <form action="" method="post">
+                    <input type="submit" value="Crypt" class="btn btn-outline">
+                    <input type="reset" value="Reset" class="btn btn-outline">
+                </form>
+                <br>
+                <!--textarea testo criptato-->
+                <h4>Testo Output</h4>
+                <textarea class="form-control" placeholder="Visualizzazione del testo finale" id="TextAreaCrypted" rows="10"></textarea>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
