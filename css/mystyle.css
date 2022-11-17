@@ -132,6 +132,8 @@ h1 {
 
 h4 {
     color: #ce9ff2 !important;
+    font-family: courier;
+    font-weight: bold !important;
 }
 
 .btn {
@@ -141,6 +143,8 @@ h4 {
     padding: 14px 28px;
     font-size: 20px !important;
     cursor: pointer;
+    font-family: courier !important;
+    font-weight: bold !important;
 }
 
 .purple{
@@ -157,4 +161,12 @@ h4 {
 .form-control:focus {
     border-color: rgb(206 159 242 / 50%) !important;
     box-shadow: 0 0 0 0.25rem rgb(206 159 242 / 25%) !important;
+}
+
+.width{
+	width: 110px;
+}
+
+.color{
+    color:#ce9ff2;
 }
