@@ -130,11 +130,31 @@ h1 {
     font-size: 70px !important;
 }
 
-button {
-    background-color: #ce9ff2 !important;
-    font-size: 27.5px !important;
+h4 {
+    color: #ce9ff2 !important;
 }
 
-h4 {
-    color: black !important;
+.btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 20px !important;
+    cursor: pointer;
+}
+
+.purple{
+    background-color: #ce9ff2 !important;
+    color: #ffffff !important;
+}
+
+.purple:hover{
+    border-color: #ce9ff2 !important;
+    background-color: white !important;
+    color: #ce9ff2 !important;
+}
+
+.form-control:focus {
+    border-color: rgb(206 159 242 / 50%) !important;
+    box-shadow: 0 0 0 0.25rem rgb(206 159 242 / 25%) !important;
 }

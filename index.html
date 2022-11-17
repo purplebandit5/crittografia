@@ -20,35 +20,37 @@
                 <h1>Crittografia</h1>
             </div>
         </div>
-        <div class="row overflow-auto pt-1 pb-1 h-70">
-            <div class="col-md-8 border-end">
-                <!--Dropdown scelta (non funziona, anche con un copia incolla dal sito bootstrap) -->
+        <div class="row overflow-auto pt-1 pb-1 h-80">
+            <div class="col-md-7 border-end">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle purple" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Scegli il metodo
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                        <li><a class="dropdown-item" href="#">3</a></li>
+                        <li><a class="dropdown-item" href="#">Cifrario a staccionata</a></li>
+                        <li><a class="dropdown-item" href="#">Cifrario di Cesare</a></li>
+                        <li><a class="dropdown-item" href="#">Cifrario OTP</a></li>
+                        <li><a class="dropdown-item" href="#">Cifrario DES</a></li>
                     </ul>
                 </div>
                 <br>
                 <!--textarea testo in chiaro-->
                 <h4>Testo input</h4>
-                <textarea class="form-control" placeholder="Inserisci il testo in chiaro" id="TextAreaDecrypted" rows="10"></textarea>
-                <br>
                 <!--non aggiorna i colori, probabile contrasto con il file .css, anche se ho eliminato già quello che riguardava i button submit e reset-->
-                <form action="" method="post">
-                    <input type="submit" value="Crypt" class="btn btn-outline">
-                    <input type="reset" value="Reset" class="btn btn-outline">
+                <form action="index.html" method="post">
+                    <textarea class="form-control" placeholder="Plain text" id="TextAreaDecrypted" rows="5"></textarea> <br>
+                    Key:
+                    <br> <input type="text" name="Key" placeholder="Enter Key" required>
+                    <input type="submit" value="Crypt" class="btn btn-outline purple">
+                    <input type="submit" value="Decrypt" class="btn btn-outline purple">
+                    <input type="reset" value="Reset" class="btn btn-outline purple">
                 </form>
                 <br>
                 <!--textarea testo criptato-->
                 <h4>Testo Output</h4>
-                <textarea class="form-control" placeholder="Visualizzazione del testo finale" id="TextAreaCrypted" rows="10"></textarea>
+                <textarea readonly class="form-control" placeholder="Visualizzazione del testo finale" id="TextAreaCrypted" rows="5"></textarea>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
 
             </div>
         </div>
