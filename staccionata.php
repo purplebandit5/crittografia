@@ -88,6 +88,7 @@ foreach ($result as $row) {
                     <input type="submit" value="Decrypt" class="btn btn-outline purple width">
                     <input type="reset" value="Reset" class="btn btn-outline purple width">
                 </form>
+				<!--if isset(tasto cliccato e key deve essere un numero)-->
                 <br>
                 <h4>Testo Output</h4>
                 <textarea readonly class="form-control" placeholder="Visualizzazione del testo finale" id="TextAreaCrypted" rows="4"><?php echo $stringa;?></textarea>
