@@ -31,5 +31,4 @@ if (strlen($testo) === strlen($key)) {
 
 
 
-
 ?>
