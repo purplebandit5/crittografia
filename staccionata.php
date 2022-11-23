@@ -11,12 +11,28 @@
 
     <title>Crittografia</title>
 </head>
+
 <?php
+//ercolifrociostupidogayottusola
 if (isset($_POST["crypt"])) {
-    if (!empty($_POST["input"]) && !empty($_POST["key"])) {
+    if (!empty($_POST["input"]) && !empty($_POST["key"])) { //controllo della presenza della chiave e del testo da cifrare
         $stringa = $_POST["input"];
         $stringa = str_replace(" ", "", $stringa);
+        $len = strlen($stringa);
         $key = $_POST["key"];
+        $n = 2*($key-1);
+        $resto = $len%$n;
+        if($resto !== 0){
+            for($i=$len; $i%$n!==0; $i++){
+                
+            }
+            $strlen = $i;
+            for($i=0;$i<$strlen-$len;$i++){
+                $stringa .= "s";    //lettera random usata come padding
+            }
+            $len = $strlen;
+        }
+        echo $stringa;
         $result = [];
         for ($i = 0; $i < $key; $i++) {
             $result[$i] = [];
@@ -60,6 +76,68 @@ if (isset($_POST["crypt"])) {
 
         }
     }
+} else if (isset($_POST["decrypt"])) {
+    if (!empty($_POST["input"]) && !empty($_POST["key"])) {
+        $stringa = $_POST["input"];
+        $stringa = str_replace(" ", "", $stringa);
+        $stringa = str_split($stringa);
+        $len = count($stringa);
+        $key = $_POST["key"];;
+
+        $decryptKey = ($len / (2 * ($key - 1))) * 2; //calcolo della chiave per il decript
+        $cont = 0;
+        $res = [];
+
+        for ($i = 0; $i < $key; $i++) {
+            $res[$i] = [];
+            for ($j = 0; $j < $decryptKey; $j++) {
+                if ($i == 0) {
+                    if ($j % 2 == 0) {
+                        $res[$i][$j] = $stringa[$cont];
+                        $cont++;
+                    } else {
+                        $res[$i][$j] = null;
+                    }
+
+                } else if ($i == ($key - 1)) {
+                    if ($j % 2 == 1) {
+                        $res[$i][$j] = $stringa[$cont];
+                        $cont++;
+                    } else {
+                        $res[$i][$j] = null;
+                    }
+
+                } else {
+                    $res[$i][$j] = $stringa[$cont];
+                    $cont++;
+                }
+            }
+        }
+
+
+
+        $stringa = "";
+        for ($i = 0; $i < $decryptKey; $i++) { //scorrimento colonne
+            if ($i % 2 == 0) {
+                for ($j = 0; $j < $key; $j++) { //scorrimento delle righe
+                    if ($res[$j][$i] !== null) {
+                        $stringa .= $res[$j][$i];
+                    }
+                }
+            } else {
+                for ($j = $key - 1; $j >= 0; $j--) { //scorrimento delle righe
+
+                    if ($res[$j][$i] !== null) {
+                        $stringa .= $res[$j][$i];
+                    }
+                }
+            }
+
+        }
+
+
+
+    }
 }
 ?>
 
@@ -71,7 +149,7 @@ if (isset($_POST["crypt"])) {
                 <h1>Crittografia</h1>
             </div>
         </div>
-        < class="row overflow-auto pt-1 pb-1 h-80">
+        <div class="row overflow-auto pt-1 pb-1 h-80">
             <div class="col-md-7 border-end">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle purple" type="button" data-bs-toggle="dropdown"
@@ -80,9 +158,9 @@ if (isset($_POST["crypt"])) {
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="staccionata.php">Cifrario a staccionata</a></li>
-                        <li><a class="dropdown-item" href="#">Cifrario di Cesare</a></li>
-                        <li><a class="dropdown-item" href="#">Cifrario OTP</a></li>
-                        <li><a class="dropdown-item" href="#">Cifrario DES</a></li>
+                        <li><a class="dropdown-item" href="cesare.php">Cifrario di Cesare</a></li>
+                        <li><a class="dropdown-item" href="otp.php">Cifrario OTP</a></li>
+                        <li><a class="dropdown-item" href="des.php">Cifrario DES</a></li>
                     </ul>
                 </div>
                 <br>
@@ -97,14 +175,16 @@ if (isset($_POST["crypt"])) {
                     <input type="submit" value="Decrypt" name="decrypt" class="btn btn-outline purple width">
                     <input type="reset" value="Reset" class="btn btn-outline purple width">
                 </form>
-                <!--if isset(tasto cliccato e key deve essere un numero)-->
                 <br>
                 <h4>Testo Output</h4>
                 <textarea readonly class="form-control" placeholder="Visualizzazione del testo finale"
-                    id="TextAreaCrypted" rows="4"><?php echo $stringa; ?></textarea>
+                    id="TextAreaCrypted" rows="4"><?php 
+                    if(isset($stringa)){
+                        echo $stringa; 
+                    }
+                    ?></textarea>
             </div>
             <div class="col-md-5">
-
                 <h4 class="text-center">Descrizione</h4>
                 <p class="descrizione">
                     Il cifrario a staccionata è un tipo di cifrario a trasposizione che deve il suo
@@ -116,9 +196,7 @@ if (isset($_POST["crypt"])) {
                     praticamente a mano.
                 </p>
             </div>
-
-
-    </div>
+        </div>
     </div>
 </body>
 

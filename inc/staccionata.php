@@ -1,8 +1,8 @@
 <?php
 
-$stringa = "la passione che ci lega";
+$stringa = "ercolifrociostupidogayottusolass";
 $stringa = str_replace(" ", "", $stringa);
-$key = 4;
+$key = 5;
 $result = [];
 for ($i = 0; $i < $key; $i++) {
     $result[$i] = [];
@@ -35,6 +35,10 @@ while ($cont < $len) {
 
     $col++;
 }
+foreach ($result as $row){
+    echo json_encode($row) . "<br>";
+}
+
 $stringa = "";
 foreach ($result as $row) {
     foreach ($row as $char) {
@@ -50,12 +54,11 @@ echo $stringa;
 
 
 //decrypt
-$stringa = str_split("PTIMIOONINAELAPDERLCLIAARCOTAL");
+$stringa = str_split($stringa);
 $len = count($stringa);
 echo $len;
-$key = 3;
 
-$decryptKey = ($len / (2 * ($key - 1))) * 2;
+$decryptKey = ($len / (2 * ($key - 1))) * 2;    //calcolo della chiave per il decript
 $cont = 0;
 $res = [];
 
@@ -84,9 +87,10 @@ for ($i = 0; $i < $key; $i++) {
         }
     }
 }
-
-echo json_encode($res);
-
+echo "<br>";
+foreach ($res as $row){
+    echo json_encode($row) . "<br>";
+}
 $stringa = "";
 for ($i = 0; $i < $decryptKey; $i++) { //scorrimento colonne
     if ($i % 2 == 0) {
