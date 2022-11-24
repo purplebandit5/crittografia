@@ -7,7 +7,7 @@ $result = [];
 for ($i = 0; $i < $key; $i++) {
     $result[$i] = [];
 }
-$cont = 0;
+$cont = 0;  //contatore
 $col = 0;
 $len = strlen($stringa);
 
