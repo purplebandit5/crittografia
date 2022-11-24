@@ -13,11 +13,13 @@
 if (!empty($_POST['crypt'])) {
     $result = "";
     $stringa = $_POST['input'];
-    $key = $_POST['key']%26;
     if(is_numeric($key)){
+        $key = $_POST['key']%26;
         foreach (str_split($stringa) as $char) {
-            if (($char >= 'a') && ($char <= 'z')) {
+            if (($char >= 'a') && ($char <= 'z')){
                 $result .= chr((((ord($char) - 97) + $key) % 26) + 97);
+            }else if(($char >= 'A') && ($char <= 'Z')){
+                $result .= chr((((ord($char) - 65) + $key) % 26) + 65);
             }
         }
     }
@@ -26,14 +28,20 @@ if (!empty($_POST['crypt'])) {
 if (!empty($_POST['decrypt'])) {
     $result = "";
     $stringa = $_POST['input'];
-    $key = $_POST['key']%26;
     if(is_numeric($key)){
+        $key = $_POST['key']%26;
         foreach (str_split($stringa) as $char) {
-            if (($char >= 'a') && ($char <= 'z')) {
+            if (($char >= 'a') && ($char <= 'z')){
                 if ((ord($char) - 97) - $key < 0) {
                     $result .= chr((((ord($char) - 97) + 26) - $key) + 97);
                 } else {
                     $result .= chr(((ord($char) - 97) - $key) + 97);
+                }
+            }else if((($char >= 'A'))&&($char <= 'z')){
+                if ((ord($char) - 65) - $key < 0) {
+                    $result .= chr((((ord($char) - 65) + 26) - $key) + 65);
+                } else {
+                    $result .= chr(((ord($char) - 65) - $key) + 65);
                 }
             }
         }
