@@ -13,9 +13,11 @@
 
 if (!empty($_POST['crypt'])) {
     $testo = $_POST['input'];
+    $testo = trim(preg_replace('/\s+/', ' ', $testo));  //rimozione delle newline
     $testo = str_replace(" ", "", $testo); //rimozione degli spazi
     $testo = strtolower($testo); //trasformazione dei caratteri della stringa in minuscoli
     $key = $_POST['key'];
+    $key = trim(preg_replace('/\s+/', ' ', $key));  //rimozione delle newline
     $key = str_replace(" ", "", $key); //rimozione degli spazi
     $key = strtolower($key); //trasformazione dei caratteri della chiave in minuscolo
     
@@ -31,9 +33,11 @@ if (!empty($_POST['crypt'])) {
 
 if (!empty($_POST['decrypt'])) {
     $testo = $_POST['input'];
+    $testo = trim(preg_replace('/\s+/', ' ', $testo));  //rimozione delle newline
     $testo = str_replace(" ", "", $testo); //rimozione degli spazi
     $testo = strtolower($testo); //trasformazione dei caratteri della stringa in minuscoli
     $key = $_POST['key'];
+    $key = trim(preg_replace('/\s+/', ' ', $key));  //rimozione delle newline
     $key = str_replace(" ", "", $key); //rimozione degli spazi
     $key = strtolower($key); //trasformazione dei caratteri della chiave in minuscolo
     $res = "";

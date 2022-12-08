@@ -17,6 +17,7 @@
 if (isset($_POST["crypt"])) {
     if (!empty($_POST["input"]) && !empty($_POST["key"])) { //controllo della presenza della chiave e del testo da cifrare
         $stringa = $_POST["input"];
+        $stringa = trim(preg_replace('/\s+/', ' ', $stringa));  //rimozione delle newline
         $stringa = str_replace(" ", "", $stringa);
         $len = strlen($stringa);
         $key = $_POST["key"];
@@ -79,6 +80,7 @@ if (isset($_POST["crypt"])) {
 } else if (isset($_POST["decrypt"])) {
     if (!empty($_POST["input"]) && !empty($_POST["key"])) {
         $stringa = $_POST["input"];
+        $stringa = trim(preg_replace('/\s+/', ' ', $stringa));  //rimozione delle newline
         $stringa = str_replace(" ", "", $stringa);
         $stringa = str_split($stringa);
         $len = count($stringa);
